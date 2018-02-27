@@ -44,14 +44,15 @@
                                 <input type="radio" name="gender" value="female" th:checked="${form.gender}=='female'"/>女性
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('dateOfBirth')} ? 'error'">
-                                <label>生年月日</label>
+                                <label>生年月日(西暦)</label>
                                 <input type="text" style="width:20%;" name="dateOfBirth" th:value="${form.dateOfBirth}"/><span style="margin: 10px; position: relative; top: 10px;">年</span>
                                 <input type="text" style="width:20%;" name="dateOfBirth2" th:value="${form.dateOfBirth2}"/><span style="margin: 10px; position: relative; top: 10px;">月</span>
                                 <input type="text" style="width:20%;" name="dateOfBirth3" th:value="${form.dateOfBirth3}"/><span style="margin: 10px; position: relative; top: 10px;">日</span>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('zipCode')} ? 'error'">
                                 <label>郵便番号</label>
-                                <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}"/>
+                                <input type="text" style="width:20%;"　class="zipcode" name="zipCode" th:value="${form.zipCode}"/><span style="position: relative; top: 10px;"> ー </span>
+                                <input type="text" style="width:20%;"　class="zipcode" name="zipCode2" th:value="${form.zipCode2}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('address')} ? 'error'">
                                 <label>ご住所</label>
