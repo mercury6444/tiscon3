@@ -116,3 +116,9 @@ ul.label {
 .photo-show:hover img {
     animation-play-state: paused;
 }
+
+/*追加(伊原明宏)*/
+ .user_birth{
+    width: 50%;
+ }
+/**/
