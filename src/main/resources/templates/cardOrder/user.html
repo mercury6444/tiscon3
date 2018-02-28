@@ -8,6 +8,7 @@
 
     <script src="/assets/js/metrixir.client.js"></script>
 
+    <!--カナ、ローマ字自動入力-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="/assets/js/KanaMaker.js"></script>
 
@@ -26,6 +27,10 @@
               })
             })
     </script>
+
+    <!--住所自動入力-->
+    <script src="/assets/js/prototype.js"></script>
+    <script src="/assets/js/ajaxzip2.js" charset="UTF-8"></script>
 
 </head>
 <body>
@@ -69,7 +74,7 @@
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('zipCode')} ? 'error'">
                                 <label>郵便番号</label>
-                                <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}"/>
+                                <input type="text" class="zipcode" name="zipCode" onKeyUp="AjaxZip2.zip2addr(this,'','address','address');" th:value="${form.zipCode}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('address')} ? 'error'">
                                 <label>ご住所</label>
