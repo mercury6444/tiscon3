@@ -56,7 +56,7 @@ public class CardOrderController {
 
     public HttpResponse inputJob(CardOrderForm form) {
         // エラーを出したくないので強制的にエラーを消す.
-       // form.setErrors(null);
+        // form.setErrors(null);
         if (form.hasErrors()) {
             return templateEngine.render("cardOrder/user", "form", form);
         }
@@ -88,11 +88,8 @@ public class CardOrderController {
         }
         CardOrder cardOrder = beans.createFrom(form, CardOrder.class);
 
-        form.getDateOfBirth();
-        form.getDateOfBirth2();
-        form.getDateOfBirth3();
 
-        cardOrder.setDateOfBirth("DateOfBirth+DateOfBirth2+DateOfBirth3");
+        cardOrder.setDateOfBirth(form.getDateOfBirth() + form.getDateOfBirth2() + form.getDateOfBirth3());
 
         cardOrderDao.insert(cardOrder);
 
