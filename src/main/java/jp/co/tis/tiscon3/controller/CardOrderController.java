@@ -87,6 +87,12 @@ public class CardOrderController {
         }
         CardOrder cardOrder = beans.createFrom(form, CardOrder.class);
 
+        form.getDateOfBirth();
+        form.getDateOfBirth2();
+        form.getDateOfBirth3();
+
+        cardOrder.setDateOfBirth("DateOfBirth+DateOfBirth2+DateOfBirth3");
+
         cardOrderDao.insert(cardOrder);
 
         return redirect(getClass(), "completed", SEE_OTHER);

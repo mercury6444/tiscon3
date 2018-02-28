@@ -45,10 +45,12 @@
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('dateOfBirth')} ? 'error'">
                                 <label>生年月日</label>
-                                <input type="text" name="dateOfBirth" th:value="${form.dateOfBirth}"/>
+                                <input type="text" style="width:20%;" name="dateOfBirth" th:value="${form.dateOfBirth}"/><span style="margin: 10px; position: relative; top: 10px;">年</span>
+                                <input type="text" style="width:20%;" name="dateOfBirth2" th:value="${form.dateOfBirth2}"/><span style="margin: 10px; position: relative; top: 10px;">月</span>
+                                <input type="text" style="width:20%;" name="dateOfBirth3" th:value="${form.dateOfBirth3}"/><span style="margin: 10px; position: relative; top: 10px;">日</span>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('zipCode')} ? 'error'">
-                                <label>郵便番号　（ハイフンなし）</label>
+                                <label>郵便番号　（ハイフンあり）</label>
                                 <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('address')} ? 'error'">
@@ -56,11 +58,11 @@
                                 <input type="text" name="address" th:value="${form.address}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('homePhoneNumber')} ? 'error'">
-                                <label>自宅電話番号　（ハイフンなし）</label>
+                                <label>自宅電話番号　（ハイフンあり）</label>
                                 <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('mobilePhoneNumber')} ? 'error'">
-                                <label>携帯電話番号　（ハイフンなし ）</label>
+                                <label>携帯電話番号　（ハイフンあり）</label>
                                 <input type="text" name="mobilePhoneNumber" th:value="${form.mobilePhoneNumber}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('emailAddress')} ? 'error'">
