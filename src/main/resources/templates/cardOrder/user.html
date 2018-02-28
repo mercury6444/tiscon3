@@ -7,6 +7,26 @@
     <title>新規作成</title>
 
     <script src="/assets/js/metrixir.client.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/KanaMaker.js"></script>
+
+    <script>
+        $(function(){
+              var convertor = null;
+              $("#kanjiName").click(function(e){
+                  convertor = new KanaMaker();
+              })
+              $("#kanjiName").keyup(function(e){
+                  if(convertor != null){
+                      convertor.eval(e);
+                      $("#kanaName").val(convertor.Kana());
+                      $("#alphabetName").val(convertor.Roma());
+                  }
+              })
+            })
+    </script>
+
 </head>
 <body>
 <div class="full height image" layout:fragment="content">
@@ -28,15 +48,15 @@
 
                             <div class="field" th:classappend="${form.hasErrors('kanjiName')} ? 'error'">
                                 <label>お名前（漢字）</label>
-                                <input type="text" name="kanjiName" th:value="${form.kanjiName}"/>
+                                <input type="text" name="kanjiName" id="kanjiName" th:value="${form.kanjiName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('kanaName')} ? 'error'">
                                 <label>お名前（カナ）</label>
-                                <input type="text" name="kanaName" th:value="${form.kanaName}"/>
+                                <input type="text" name="kanaName" id="kanaName" th:value="${form.kanaName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('alphabetName')} ? 'error'">
                                 <label>お名前（ローマ字）</label>
-                                <input type="text" name="alphabetName" th:value="${form.alphabetName}"/>
+                                <input type="text" name="alphabetName" id="alphabetName" th:value="${form.alphabetName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('gender')} ? 'error'">
                                 <label>性別</label>
@@ -127,5 +147,15 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(
+        function() {
+            $.fn.autoKana('#kanjiName', '#kanaName', {
+                katakana : true  //true：カタカナ、false：ひらがな（デフォルト）
+        });
+    });
+</script>
+
 </body>
 </html>
